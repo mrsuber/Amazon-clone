@@ -2,35 +2,35 @@ import '../../css/SubTotal.css'
 import CurrencyFormat from 'react-currency-format'
 import {useStateValue} from '../../StateProvider'
 import {getBasketTotal} from '../../reducer'
-
+import {useHistory} from 'react-router-dom'
 
 function SubTotal(){
+  const history = useHistory()
   const [{basket}, dispatch]= useStateValue()
     // console.log(getBasketTotal(basket))
+    const total =()=>{
+      let totalPrice = 0;
+      for(let i=0;i<basket.length;i++){
+        totalPrice+=basket[i].price
+      }
+    return totalPrice
+    }
   return(
     <div className="subtotal">
-    {/* price */}
-            <CurrencyFormat
-                renderText = {(value) => (
-                    <>
+
+
                         <p>
-                ( Subtotal {basket.length} items ) : <strong>{`${value}`}</strong>
+                 (Subtotal {basket.length} items ) : <strong>$ {total()}</strong>
                         </p>
                         <small className="subtotal__gift">
                             <input type="checkbox"/> This order contains
                         </small>
-                    </>
-                )}
-                value={getBasketTotal(basket)}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-            />
 
-            <button>Proceed to checkout</button>
+
+
+            <button onClick={e=>history.push('/payment')}>Proceed to checkout</button>
     </div>
-  )
-}
+  )}
 
 
 export default SubTotal
