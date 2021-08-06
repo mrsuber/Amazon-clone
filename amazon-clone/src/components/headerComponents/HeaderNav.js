@@ -7,10 +7,12 @@ function HeaderNav(){
 
   return(
     <div className="header-nav">
+    <Link to='/login'>
       <div className="header-nav-option">
         <span className="header-nav-option-line1">Hello Guest</span>
         <span className="header-nav-option-line2">Sign In</span>
       </div>
+      </Link>
 
       <div className="header-nav-option">
         <span className="header-nav-option-line1">Returns</span>
