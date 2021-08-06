@@ -1,19 +1,38 @@
 import logo from '../../images/Amazon_logo.svg'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import '../../css/Login.css'
 import {useState} from 'react'
+import {auth} from '../../firebase'
 
 
 function Login(){
+  const history = useHistory()
   const [email,setEmail]=useState('')
   const [password, setPassword]=useState('')
+
   const signIn=(e)=>{
     e.preventDefault()
+    auth
+        .signInWithEmailAndPassword(email,password)
+        .then(auth=>{
+          history.push('/')
+        })
+        .catch(error=>alert(error.message))
+
 
 
   }
   const register =(e)=>{
     e.preventDefault()
+    auth
+      .createUserWithEmailAndPassword(email,password)
+      .then((auth)=>{
+
+        if(auth){
+          history.push('/')
+        }
+      })
+      .catch(error=>alert(error.message))
   }
   return(
     <div className="login">

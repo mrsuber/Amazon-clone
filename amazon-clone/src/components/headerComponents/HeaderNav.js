@@ -1,16 +1,24 @@
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
 import {Link} from 'react-router-dom'
 import {useStateValue} from '../../StateProvider'
+import {auth} from '../../firebase'
 
 function HeaderNav(){
-  const [{basket}, dispatch] = useStateValue()
+  const [{basket,user}, dispatch] = useStateValue()
+  const handleAuthentication = ()=>{
+    if(user){
+      auth.signOut();
+    }
+  }
 
   return(
+
     <div className="header-nav">
-    <Link to='/login'>
-      <div className="header-nav-option">
+    
+    <Link to={!user && '/login'}>
+      <div onClick={handleAuthentication} className="header-nav-option">
         <span className="header-nav-option-line1">Hello Guest</span>
-        <span className="header-nav-option-line2">Sign In</span>
+        <span className="header-nav-option-line2">{user ? 'Sign Out':'Sign In'}</span>
       </div>
       </Link>
 
