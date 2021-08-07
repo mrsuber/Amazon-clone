@@ -21,11 +21,12 @@ function HeaderNav(){
         <span className="header-nav-option-line2">{user ? 'Sign Out':'Sign In'}</span>
       </div>
       </Link>
-
+      <Link to={'/order'}>
       <div className="header-nav-option">
         <span className="header-nav-option-line1">Returns</span>
         <span className="header-nav-option-line2">& Orders</span>
       </div>
+      </Link>
 
       <div className="header-nav-option">
         <span className="header-nav-option-line1">Your</span>

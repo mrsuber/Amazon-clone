@@ -3,7 +3,7 @@ import Home from './components/Home'
 import Checkout from './components/Checkout'
 import Login from './components/authComponet/Login'
 import Payment from './components/Payment'
-import Order from './components/Order'
+import Orders from './components/Orders'
 import './App.css';
 import {BrowserRouter as Router, Switch,Route} from 'react-router-dom'
 import {useEffect} from 'react'
@@ -46,7 +46,7 @@ function App() {
 
             <Route path='/login'>  <Login />  </Route>
             <Route path='/payment'><Header />  <Elements stripe={promise}> <Payment /> </Elements>  </Route>
-            <Route path='/order'><Header />  <Order /></Route>
+            <Route path='/order'><Header />  <Orders /></Route>
             <Route path='/checkout'><Header />  <Checkout /></Route>
             <Route path='/'><Header /> <Home /> </Route>
 
