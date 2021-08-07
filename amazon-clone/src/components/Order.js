@@ -1,6 +1,12 @@
+import '../css/Orders.css'
+
 function Order(){
   return(
-    <div>this id the order page</div>
+    <div className="orders">
+
+    <h1>Your Orders</h1>
+
+    </div>
   )
 }
 
