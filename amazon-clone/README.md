@@ -70,4 +70,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 # The Live version of this site is deployed with netlify
-**Check out the life [site here](https://modest-goldwasser-fe077f.netlify.app/)
+**Check out the life [site here](https://modest-goldwasser-fe077f.netlify.app/)**
+***note the buy will not work because my firebase function is not deployed. still to update the firebase account with my creadit card***
